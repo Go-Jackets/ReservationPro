@@ -11,12 +11,15 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var userDataModel: UserDataModel
     var body: some View {
-        VStack {
-            GoogleSignInButton(colorScheme: .light) { (uid) in
-                self.userDataModel.uid = uid
-                print(uid)
+        Group {
+            if userDataModel.uid == nil {
+                GoogleSignInButton(colorScheme: .light) { (uid) in
+                    self.userDataModel.uid = uid
+                    print(uid)
+                }
+            } else {
+                Text("Successfully logged in.")
             }
-            Text(userDataModel.uid ?? "")
         }
     }
 }
