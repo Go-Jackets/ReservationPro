@@ -9,9 +9,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var userDataModel: UserDataModel
     var body: some View {
-        GoogleSignInButton(colorScheme: .light) { (str) in
-            print(str)
+        VStack {
+            GoogleSignInButton(colorScheme: .light) { (uid) in
+                self.userDataModel.uid = uid
+                print(uid)
+            }
+            Text(userDataModel.uid ?? "")
         }
     }
 }

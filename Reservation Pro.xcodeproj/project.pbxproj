@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A1974DD23D641660097A909 /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1974DC23D641660097A909 /* UserDataModel.swift */; };
 		5AD70D3123D620C10092CB12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD70D3023D620C10092CB12 /* AppDelegate.swift */; };
 		5AD70D3323D620C10092CB12 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD70D3223D620C10092CB12 /* SceneDelegate.swift */; };
 		5AD70D3523D620C10092CB12 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD70D3423D620C10092CB12 /* ContentView.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		0FCA884D99C437CAC82EE4FD /* Pods_Reservation_Pro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reservation_Pro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A1974DC23D641660097A909 /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
 		5AD70D2D23D620C10092CB12 /* Reservation Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reservation Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD70D3023D620C10092CB12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AD70D3223D620C10092CB12 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				5AD70D3023D620C10092CB12 /* AppDelegate.swift */,
 				5AD70D3223D620C10092CB12 /* SceneDelegate.swift */,
 				5AD70D3423D620C10092CB12 /* ContentView.swift */,
+				5A1974DC23D641660097A909 /* UserDataModel.swift */,
 				5AD70D4823D62E5E0092CB12 /* ViewRepresentable */,
 				5AD70D3623D620C20092CB12 /* Assets.xcassets */,
 				5AD70D3B23D620C20092CB12 /* LaunchScreen.storyboard */,
@@ -249,6 +252,7 @@
 			files = (
 				5AD70D4723D62E570092CB12 /* GoogleSignInButton.swift in Sources */,
 				5AD70D3123D620C10092CB12 /* AppDelegate.swift in Sources */,
+				5A1974DD23D641660097A909 /* UserDataModel.swift in Sources */,
 				5AD70D3323D620C10092CB12 /* SceneDelegate.swift in Sources */,
 				5AD70D3523D620C10092CB12 /* ContentView.swift in Sources */,
 			);
