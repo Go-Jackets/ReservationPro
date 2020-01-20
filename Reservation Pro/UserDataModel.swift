@@ -11,5 +11,5 @@ import Combine
 
 class UserDataModel: ObservableObject {
     @Published var uid: String?
-    
+    @Published var signedIn: Bool = false
 }

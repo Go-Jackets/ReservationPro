@@ -12,13 +12,13 @@ struct ContentView: View {
     @EnvironmentObject var userDataModel: UserDataModel
     var body: some View {
         Group {
-            if userDataModel.uid == nil {
-                GoogleSignInButton(colorScheme: .light) { (uid) in
-                    self.userDataModel.uid = uid
-                    print(uid)
-                }
-            } else {
-                Text("Successfully logged in.")
+            GoogleSignInButton(colorScheme: .light) { (uid) in
+                self.userDataModel.uid = uid
+                self.userDataModel.signedIn = true
+                print(uid)
+            }
+            NavigationLink(destination: TestView(), isActive: $userDataModel.signedIn) {
+                EmptyView()
             }
         }
     }
@@ -27,5 +27,11 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct TestView: View {
+    var body: some View {
+        Text("")
     }
 }
