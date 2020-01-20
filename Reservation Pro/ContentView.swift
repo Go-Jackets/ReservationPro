@@ -12,14 +12,16 @@ struct ContentView: View {
     @EnvironmentObject var userDataModel: UserDataModel
     var body: some View {
         Group {
-            GoogleSignInButton(colorScheme: .light) { (uid) in
-                self.userDataModel.uid = uid
-                self.userDataModel.signedIn = true
-                print(uid)
+            if userDataModel.uid == nil {
+                GoogleSignInButton(colorScheme: .light) { (uid) in
+                    self.userDataModel.uid = uid
+                    self.userDataModel.signedIn = true
+                    print(uid)
+                }
+            } else {
+                Text("Successfully signed in")
             }
-            NavigationLink(destination: TestView(), isActive: $userDataModel.signedIn) {
-                EmptyView()
-            }
+                
         }
     }
 }
