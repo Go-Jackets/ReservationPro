@@ -8,7 +8,7 @@ target 'Reservation Pro' do
   # Pods for Reservation Pro
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
-  pod 'GoogleSignIn'
+  pod 'GoogleSignIn', '< 5.0.0'
   pod 'Firebase/Database'
   pod 'Firebase/Messaging'
 
