@@ -12,9 +12,9 @@ struct ContentView: View {
     @EnvironmentObject var userDataModel: UserDataModel
     var body: some View {
         Group {
-            if userDataModel.uid == nil {
+            if userDataModel.user == nil {
                 GoogleSignInButton(colorScheme: .light) { (uid) in
-                    self.userDataModel.uid = uid
+                    self.userDataModel.user = User(uID: uid, reservationIDs: [])
                     self.userDataModel.signedIn = true
                     print(uid)
                 }

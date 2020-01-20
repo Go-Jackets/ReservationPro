@@ -1,9 +1,9 @@
 //
-//  GoogleInButton.swift
-//  MusificationSwiftUI
+//  GoogleSignInButton.swift
+//  Reservation Pro
 //
-//  Created by Rahil Patel on 7/5/19.
-//  Copyright © 2019 Rahil. All rights reserved.
+//  Created by Rahil Patel on 1/20/20.
+//  Copyright © 2020 GoJackets. All rights reserved.
 //
 
 import Foundation

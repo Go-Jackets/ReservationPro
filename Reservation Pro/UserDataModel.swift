@@ -10,6 +10,16 @@ import Foundation
 import Combine
 
 class UserDataModel: ObservableObject {
-    @Published var uid: String?
     @Published var signedIn: Bool = false
+    @Published var user: User?
+    
+    func getUserData() {
+        let req = FirebaseRequest()
+        if let id = user?.uID {
+            req.observe(path: "/\(id)") { (snap) in
+                print(snap.exists())
+            }
+        }
+        
+    }
 }
