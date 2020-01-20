@@ -14,7 +14,7 @@ import Firebase
 
 struct GoogleSignInButton: UIViewRepresentable {
     var colorScheme: ColorScheme
-    let onSignIn: (String) -> Void
+    let onSignIn: (String, String) -> Void
     func makeUIView(context: Context) -> GIDSignInButton {
         let btn = GIDSignInButton()
         btn.colorScheme = colorScheme == .dark ? .dark : .light
@@ -29,8 +29,8 @@ struct GoogleSignInButton: UIViewRepresentable {
     }
     
     class Coordinator: NSObject, GIDSignInUIDelegate, GIDSignInDelegate {
-        var onSignIn: (String) -> Void
-        init(onSignIn: @escaping (String) -> Void) {
+        var onSignIn: (String, String) -> Void
+        init(onSignIn: @escaping (String, String) -> Void) {
             self.onSignIn = onSignIn
             super.init()
             GIDSignIn.sharedInstance()?.uiDelegate = self
@@ -51,7 +51,7 @@ struct GoogleSignInButton: UIViewRepresentable {
                 return
             }
             print("Success! Signed in user \(signIn.currentUser.userID ?? " X - There was an issue and there is no current user or userID")")
-            onSignIn(signIn.currentUser.userID)
+            onSignIn(signIn.currentUser.userID, user.profile.givenName)
         }
     }
 }

@@ -15,9 +15,16 @@ class UserDataModel: ObservableObject {
     
     func getUserData() {
         let req = FirebaseRequest()
-        if let id = user?.uID {
-            req.observe(path: "/\(id)") { (snap) in
+        if let user = user {
+            let data = [
+                "reservations":[],
+                "name": user.name
+                ] as [String : Any]
+            req.observe(path: "/users/\(user.uID)") { (snap) in
                 print(snap.exists())
+                if !snap.exists() {
+                    req.uploadData(path: "/users/\(user.uID)", value: data)
+                }
             }
         }
         

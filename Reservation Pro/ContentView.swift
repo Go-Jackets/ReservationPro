@@ -13,10 +13,11 @@ struct ContentView: View {
     var body: some View {
         Group {
             if userDataModel.user == nil {
-                GoogleSignInButton(colorScheme: .light) { (uid) in
-                    self.userDataModel.user = User(uID: uid, reservationIDs: [])
+                GoogleSignInButton(colorScheme: .light) { (uid, name) in
+                    self.userDataModel.user = User(uID: uid, reservationIDs: [], name: name)
                     self.userDataModel.signedIn = true
                     print(uid)
+                    self.userDataModel.getUserData()
                 }
             } else {
                 Text("Successfully signed in")

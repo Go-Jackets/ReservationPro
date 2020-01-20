@@ -11,4 +11,5 @@ import Foundation
 struct User {
     var uID: String
     var reservationIDs: [String]
+    var name: String
 }
