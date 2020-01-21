@@ -59,4 +59,18 @@ class UserDataModel: ObservableObject {
         let reservation = Reservation(rID: rID, dateTime: dateTime, numPeople: numPeople, location: location, reserverID: reserverID)
         user?.reservations.append(reservation)
     }
+    
+    func handleReservation(_ reservation: Reservation) {
+        let req = FirebaseRequest()
+        do {
+            let data = try JSONEncoder().encode(reservation)
+            let dict = try JSONSerialization.jsonObject(with: data)
+            req.uploadData(path: "/reservations/\(reservation.rID)", value: dict)
+            user?.reservations.append(reservation)
+            guard let user = user else { return }
+            req.uploadData(path: "/users/\(user.uID)/reservations", value: user.reservations.map { $0.rID })
+        } catch {
+            print("There was an issue")
+        }
+    }
 }

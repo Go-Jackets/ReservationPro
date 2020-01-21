@@ -27,7 +27,7 @@ struct ReservationList: View {
                     Text("Create Reservation")
                 }
             }
-            NavigationLink(destination: ReservationView(reservationDate: Date(), selectorIndex: 0, numPeople: "1"), isActive: $navigateNewReservation) {
+            NavigationLink(destination: ReservationView(reservationDate: Date(), selectorIndex: 0, numPeople: "1", rID: "\(UUID())"), isActive: $navigateNewReservation) {
                 EmptyView()
             }.navigationBarItems(trailing: Button(action: {
                 self.navigateNewReservation = true

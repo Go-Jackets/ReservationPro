@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Reservation {
+struct Reservation: Codable {
     var rID: String
     var dateTime: String
     var numPeople: Int
