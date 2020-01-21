@@ -21,9 +21,8 @@ struct ContentView: View {
 //                    uid = uid
                     self.userDataModel.getUserData()
                 }
-                NavigationLink(destination: ReservationView()) {
-                    Text("Reservation Screen")
-                        .foregroundColor(.black)
+                NavigationLink(destination: ReservationView(), isActive: $userDataModel.signedIn) {
+                    EmptyView()
                 }
             }
             
