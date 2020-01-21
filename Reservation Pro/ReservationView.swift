@@ -9,10 +9,10 @@
 import SwiftUI
 
 struct ReservationView: View {
-    @State private var reservationDate = Date()
-    @State private var selectorIndex = 0
+    @State var reservationDate: Date
+    @State var selectorIndex: Int
     @State private var locations = ["Inside","Outside","Smoke Free"]
-    @State private var numPeople = ""
+    @State var numPeople: String
     
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -47,6 +47,6 @@ struct ReservationView: View {
 
 struct ReservationView_Previews: PreviewProvider {
     static var previews: some View {
-        ReservationView()
+        ReservationView(reservationDate: Date(), selectorIndex: 0, numPeople: "1")
     }
 }
