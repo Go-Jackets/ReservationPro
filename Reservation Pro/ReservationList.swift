@@ -34,8 +34,13 @@ struct ReservationList: View {
             }, label: {
                 Image(systemName: "plus")
             }))
-            }.navigationBarTitle("Reservations")
-            .navigationBarBackButtonHidden(true)
+        }.navigationBarTitle("Reservations")
+        .navigationBarBackButtonHidden(true)
+        .onAppear {
+            self.userDataModel.getUserData {
+                print("Updated user data")
+            }
+        }
     }
 }
 

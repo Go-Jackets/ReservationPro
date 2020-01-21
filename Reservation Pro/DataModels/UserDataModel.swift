@@ -66,9 +66,13 @@ class UserDataModel: ObservableObject {
             let data = try JSONEncoder().encode(reservation)
             let dict = try JSONSerialization.jsonObject(with: data)
             req.uploadData(path: "/reservations/\(reservation.rID)", value: dict)
-            user?.reservations.append(reservation)
             guard let user = user else { return }
-            req.uploadData(path: "/users/\(user.uID)/reservations", value: user.reservations.map { $0.rID })
+            let rIDs = user.reservations.map { $0.rID }
+            if !rIDs.contains(reservation.rID) {
+                self.user?.reservations.append(reservation)
+                guard let updatedReservations = self.user?.reservations else { return }
+                req.uploadData(path: "/users/\(user.uID)/reservations", value: updatedReservations.map { $0.rID })
+            }
         } catch {
             print("There was an issue")
         }

@@ -39,10 +39,22 @@ struct ReservationView: View {
             Text("Date is \(reservationDate, formatter: dateFormatter)")
             Text("Selected Location is: \(locations[selectorIndex])").padding()
             Text("The amount of people: \(numPeople)")
-//            Text("Reservation Uid: \(user().uID)")
-            
+            Button(action: {
+                let reservation = Reservation(rID: self.rID, dateTime: self.getDateString(from: self.reservationDate), numPeople: Int(self.numPeople) ?? 0, location: self.locations[self.selectorIndex], reserverID: self.userDataModel.user?.uID ?? "")
+                self.userDataModel.handleReservation(reservation)
+            }) {
+                Text("Create")
+            }
             
         }
+    }
+    
+    private func getDateString(from date: Date) -> String {
+        print(date)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        print(formatter.string(from: date))
+        return formatter.string(from: date)
     }
 }
 
