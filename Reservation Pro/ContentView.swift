@@ -16,10 +16,10 @@ struct ContentView: View {
             VStack {
                 GoogleSignInButton(colorScheme: .light) { (uid, name) in
                     self.userDataModel.user = User(uID: uid, reservations: [], name: name)
-                    self.userDataModel.signedIn = true
                     print(uid)
-//                    uid = uid
-                    self.userDataModel.getUserData()
+                    self.userDataModel.getUserData {
+                        self.userDataModel.signedIn = true
+                    }
                 }
                 NavigationLink(destination: ReservationList().environmentObject(userDataModel), isActive: $userDataModel.signedIn) {
                     EmptyView()

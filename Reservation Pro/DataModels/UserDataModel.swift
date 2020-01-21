@@ -13,7 +13,7 @@ class UserDataModel: ObservableObject {
     @Published var signedIn: Bool = false
     @Published var user: User?
     
-    func getUserData() {
+    func getUserData(onFinish: @escaping () -> ()) {
         let req = FirebaseRequest()
         if let user = user {
             let data = [
@@ -27,6 +27,7 @@ class UserDataModel: ObservableObject {
                 } else {
                     self.parseUserData(data: snap.value as? [String: Any])
                 }
+                onFinish()
             }
         }
     }
