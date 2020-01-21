@@ -9,10 +9,12 @@
 import SwiftUI
 
 struct ReservationView: View {
+    @EnvironmentObject var userDataModel: UserDataModel
     @State var reservationDate: Date
     @State var selectorIndex: Int
     @State private var locations = ["Inside","Outside","Smoke Free"]
     @State var numPeople: String
+    var rID: String
     
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -47,6 +49,6 @@ struct ReservationView: View {
 
 struct ReservationView_Previews: PreviewProvider {
     static var previews: some View {
-        ReservationView(reservationDate: Date(), selectorIndex: 0, numPeople: "1")
+        ReservationView(reservationDate: Date(), selectorIndex: 0, numPeople: "1", rID: "\(UUID())")
     }
 }
