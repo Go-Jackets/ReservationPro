@@ -14,6 +14,9 @@ struct ReservationView: View {
     @State var selectorIndex: Int
     @State private var locations = ["Inside","Outside","Smoke Free"]
     @State var numPeople: String
+    @State var createdReservation = false
+    var newReservation: Bool
+    @Environment(\.presentationMode) var presentationMode
     var rID: String
     
     var dateFormatter: DateFormatter {
@@ -42,10 +45,15 @@ struct ReservationView: View {
             Button(action: {
                 let reservation = Reservation(rID: self.rID, dateTime: self.getDateString(from: self.reservationDate), numPeople: Int(self.numPeople) ?? 0, location: self.locations[self.selectorIndex], reserverID: self.userDataModel.user?.uID ?? "")
                 self.userDataModel.handleReservation(reservation)
+                self.createdReservation = true
             }) {
-                Text("Create")
+                Text(newReservation ? "Create" : "Update")
             }
             
+        }.alert(isPresented: $createdReservation) {
+            Alert(title: Text("Success!"), message: Text("Thanks for making a reservation with us!"), dismissButton: .default(Text("OK"), action: {
+                self.presentationMode.wrappedValue.dismiss()
+            }))
         }
     }
     
@@ -61,6 +69,6 @@ struct ReservationView: View {
 
 struct ReservationView_Previews: PreviewProvider {
     static var previews: some View {
-        ReservationView(reservationDate: Date(), selectorIndex: 0, numPeople: "1", rID: "\(UUID())")
+        ReservationView(reservationDate: Date(), selectorIndex: 0, numPeople: "1", newReservation: true, rID: "\(UUID())")
     }
 }

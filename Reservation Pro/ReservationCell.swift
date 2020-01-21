@@ -11,7 +11,7 @@ import SwiftUI
 struct ReservationCell: View {
     var reservation: Reservation
     var body: some View {
-        NavigationLink(destination: ReservationView(reservationDate: dateFor(dateStr: reservation.dateTime), selectorIndex: indexFor(locationStr: reservation.location), numPeople: "\(reservation.numPeople)", rID: reservation.rID)) {
+        NavigationLink(destination: ReservationView(reservationDate: dateFor(dateStr: reservation.dateTime), selectorIndex: indexFor(locationStr: reservation.location), numPeople: "\(reservation.numPeople)", newReservation: false, rID: reservation.rID)) {
             VStack {
                 Text("Reservation for \(reservation.numPeople) \(reservation.numPeople == 1 ? "person" : "people")")
                 Text("on \(readableDateString(for: reservation.dateTime))")

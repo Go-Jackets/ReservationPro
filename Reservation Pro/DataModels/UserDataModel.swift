@@ -35,7 +35,6 @@ class UserDataModel: ObservableObject {
         guard let data = data else { return }
         guard let name = data["name"] as? String else { return }
         user?.name = name
-        user?.reservations = []
         if let rIDs = data["reservations"] as? [String] {
             for rID in rIDs {
                 getReservation(from: rID)
@@ -57,7 +56,16 @@ class UserDataModel: ObservableObject {
         guard let location = data["location"] as? String else { return }
         guard let reserverID = user?.uID else { return }
         let reservation = Reservation(rID: rID, dateTime: dateTime, numPeople: numPeople, location: location, reserverID: reserverID)
-        user?.reservations.append(reservation)
+        guard let user = user else { return }
+        let reservationIDs = user.reservations.map { $0.rID }
+        if reservationIDs.contains(rID) {
+            // update a reservation
+            let i = reservationIDs.firstIndex(of: rID)!
+            self.user!.reservations[i] = reservation
+        } else {
+            // create a new reservation
+            self.user?.reservations.append(reservation)
+        }
     }
     
     func handleReservation(_ reservation: Reservation) {
