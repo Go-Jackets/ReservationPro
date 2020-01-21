@@ -10,6 +10,10 @@
 		5A1974DD23D641660097A909 /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1974DC23D641660097A909 /* UserDataModel.swift */; };
 		5A1974DF23D6469B0097A909 /* FirebaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1974DE23D6469B0097A909 /* FirebaseRequest.swift */; };
 		5A1974E123D646F40097A909 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1974E023D646F40097A909 /* User.swift */; };
+		5A1974E323D7623C0097A909 /* ReservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1974E223D7623C0097A909 /* ReservationView.swift */; };
+		5A1974E523D762CF0097A909 /* ReservationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1974E423D762CF0097A909 /* ReservationList.swift */; };
+		5A1974E723D7633E0097A909 /* ReservationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1974E623D7633E0097A909 /* ReservationCell.swift */; };
+		5A1974E923D763510097A909 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1974E823D763510097A909 /* Reservation.swift */; };
 		5AD70D3123D620C10092CB12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD70D3023D620C10092CB12 /* AppDelegate.swift */; };
 		5AD70D3323D620C10092CB12 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD70D3223D620C10092CB12 /* SceneDelegate.swift */; };
 		5AD70D3523D620C10092CB12 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD70D3423D620C10092CB12 /* ContentView.swift */; };
@@ -18,14 +22,17 @@
 		5AD70D3D23D620C20092CB12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD70D3B23D620C20092CB12 /* LaunchScreen.storyboard */; };
 		5AD70D4723D62E570092CB12 /* GoogleSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD70D4623D62E560092CB12 /* GoogleSignInButton.swift */; };
 		7AC34A9123D63913006E5014 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AC34A9023D63913006E5014 /* GoogleService-Info.plist */; };
-		8659FD5F124A686A0D32EC99 /* Pods_Reservation_Pro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FCA884D99C437CAC82EE4FD /* Pods_Reservation_Pro.framework */; };
+		BCA788E6C6A5D5893FE4A516 /* libPods-Reservation Pro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B872A1E7994DC68B0619F12F /* libPods-Reservation Pro.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0FCA884D99C437CAC82EE4FD /* Pods_Reservation_Pro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reservation_Pro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A1974DC23D641660097A909 /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
 		5A1974DE23D6469B0097A909 /* FirebaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRequest.swift; sourceTree = "<group>"; };
 		5A1974E023D646F40097A909 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5A1974E223D7623C0097A909 /* ReservationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationView.swift; sourceTree = "<group>"; };
+		5A1974E423D762CF0097A909 /* ReservationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationList.swift; sourceTree = "<group>"; };
+		5A1974E623D7633E0097A909 /* ReservationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationCell.swift; sourceTree = "<group>"; };
+		5A1974E823D763510097A909 /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
 		5AD70D2D23D620C10092CB12 /* Reservation Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reservation Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD70D3023D620C10092CB12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AD70D3223D620C10092CB12 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,8 +43,9 @@
 		5AD70D3E23D620C20092CB12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AD70D4623D62E560092CB12 /* GoogleSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInButton.swift; sourceTree = "<group>"; };
 		7AC34A9023D63913006E5014 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		8DA403302B74F08D881A1B60 /* Pods-Reservation Pro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reservation Pro.debug.xcconfig"; path = "Target Support Files/Pods-Reservation Pro/Pods-Reservation Pro.debug.xcconfig"; sourceTree = "<group>"; };
-		C401650ACF7441959977EF60 /* Pods-Reservation Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reservation Pro.release.xcconfig"; path = "Target Support Files/Pods-Reservation Pro/Pods-Reservation Pro.release.xcconfig"; sourceTree = "<group>"; };
+		930BBFE6DC5FC9B8BD6B8AA4 /* Pods-Reservation Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reservation Pro.release.xcconfig"; path = "Target Support Files/Pods-Reservation Pro/Pods-Reservation Pro.release.xcconfig"; sourceTree = "<group>"; };
+		AEF2FC4655794344CDD0F525 /* Pods-Reservation Pro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reservation Pro.debug.xcconfig"; path = "Target Support Files/Pods-Reservation Pro/Pods-Reservation Pro.debug.xcconfig"; sourceTree = "<group>"; };
+		B872A1E7994DC68B0619F12F /* libPods-Reservation Pro.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Reservation Pro.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,19 +53,44 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8659FD5F124A686A0D32EC99 /* Pods_Reservation_Pro.framework in Frameworks */,
+				BCA788E6C6A5D5893FE4A516 /* libPods-Reservation Pro.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		213AE4BA1862F8AD622571E7 /* Frameworks */ = {
+		1D1FC15CFFE995EE432350AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0FCA884D99C437CAC82EE4FD /* Pods_Reservation_Pro.framework */,
+				B872A1E7994DC68B0619F12F /* libPods-Reservation Pro.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5A1974EA23D76B470097A909 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5A1974E823D763510097A909 /* Reservation.swift */,
+				5A1974E023D646F40097A909 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5A1974EB23D76B4E0097A909 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				5A1974DE23D6469B0097A909 /* FirebaseRequest.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		5A1974EC23D76B770097A909 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				5A1974DC23D641660097A909 /* UserDataModel.swift */,
+			);
+			path = DataModels;
 			sourceTree = "<group>";
 		};
 		5AD70D2423D620C00092CB12 = {
@@ -66,7 +99,7 @@
 				5AD70D2F23D620C10092CB12 /* Reservation Pro */,
 				5AD70D2E23D620C10092CB12 /* Products */,
 				65D01F6D9F8079AB2C87E91F /* Pods */,
-				213AE4BA1862F8AD622571E7 /* Frameworks */,
+				1D1FC15CFFE995EE432350AE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,9 +118,12 @@
 				5AD70D3023D620C10092CB12 /* AppDelegate.swift */,
 				5AD70D3223D620C10092CB12 /* SceneDelegate.swift */,
 				5AD70D3423D620C10092CB12 /* ContentView.swift */,
-				5A1974DE23D6469B0097A909 /* FirebaseRequest.swift */,
-				5A1974DC23D641660097A909 /* UserDataModel.swift */,
-				5A1974E023D646F40097A909 /* User.swift */,
+				5A1974E423D762CF0097A909 /* ReservationList.swift */,
+				5A1974E623D7633E0097A909 /* ReservationCell.swift */,
+				5A1974E223D7623C0097A909 /* ReservationView.swift */,
+				5A1974EB23D76B4E0097A909 /* Networking */,
+				5A1974EA23D76B470097A909 /* Models */,
+				5A1974EC23D76B770097A909 /* DataModels */,
 				5AD70D4823D62E5E0092CB12 /* ViewRepresentable */,
 				5AD70D3623D620C20092CB12 /* Assets.xcassets */,
 				5AD70D3B23D620C20092CB12 /* LaunchScreen.storyboard */,
@@ -116,8 +152,8 @@
 		65D01F6D9F8079AB2C87E91F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8DA403302B74F08D881A1B60 /* Pods-Reservation Pro.debug.xcconfig */,
-				C401650ACF7441959977EF60 /* Pods-Reservation Pro.release.xcconfig */,
+				AEF2FC4655794344CDD0F525 /* Pods-Reservation Pro.debug.xcconfig */,
+				930BBFE6DC5FC9B8BD6B8AA4 /* Pods-Reservation Pro.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -129,12 +165,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5AD70D4123D620C20092CB12 /* Build configuration list for PBXNativeTarget "Reservation Pro" */;
 			buildPhases = (
-				D62F48B515256FBF2E85CD24 /* [CP] Check Pods Manifest.lock */,
+				58DD097DB878648E42DA5BC2 /* [CP] Check Pods Manifest.lock */,
 				5AD70D2923D620C10092CB12 /* Sources */,
 				5AD70D2A23D620C10092CB12 /* Frameworks */,
 				5AD70D2B23D620C10092CB12 /* Resources */,
-				107AA693EFADAEC8EFE4BA44 /* [CP] Embed Pods Frameworks */,
-				838EEEC4DEC41BA4D88426F4 /* [CP] Copy Pods Resources */,
+				139428ED03575253EA71CB78 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,24 +228,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		107AA693EFADAEC8EFE4BA44 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Reservation Pro/Pods-Reservation Pro-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Reservation Pro/Pods-Reservation Pro-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Reservation Pro/Pods-Reservation Pro-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		838EEEC4DEC41BA4D88426F4 /* [CP] Copy Pods Resources */ = {
+		139428ED03575253EA71CB78 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -227,7 +245,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Reservation Pro/Pods-Reservation Pro-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D62F48B515256FBF2E85CD24 /* [CP] Check Pods Manifest.lock */ = {
+		58DD097DB878648E42DA5BC2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -258,9 +276,13 @@
 			files = (
 				5AD70D4723D62E570092CB12 /* GoogleSignInButton.swift in Sources */,
 				5AD70D3123D620C10092CB12 /* AppDelegate.swift in Sources */,
+				5A1974E723D7633E0097A909 /* ReservationCell.swift in Sources */,
+				5A1974E923D763510097A909 /* Reservation.swift in Sources */,
 				5A1974DD23D641660097A909 /* UserDataModel.swift in Sources */,
+				5A1974E523D762CF0097A909 /* ReservationList.swift in Sources */,
 				5AD70D3323D620C10092CB12 /* SceneDelegate.swift in Sources */,
 				5A1974DF23D6469B0097A909 /* FirebaseRequest.swift in Sources */,
+				5A1974E323D7623C0097A909 /* ReservationView.swift in Sources */,
 				5AD70D3523D620C10092CB12 /* ContentView.swift in Sources */,
 				5A1974E123D646F40097A909 /* User.swift in Sources */,
 			);
@@ -396,11 +418,12 @@
 		};
 		5AD70D4223D620C20092CB12 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8DA403302B74F08D881A1B60 /* Pods-Reservation Pro.debug.xcconfig */;
+			baseConfigurationReference = AEF2FC4655794344CDD0F525 /* Pods-Reservation Pro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Reservation Pro/Preview Content\"";
+				DEVELOPMENT_TEAM = 5XC5483PFF;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Reservation Pro/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -416,11 +439,12 @@
 		};
 		5AD70D4323D620C20092CB12 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C401650ACF7441959977EF60 /* Pods-Reservation Pro.release.xcconfig */;
+			baseConfigurationReference = 930BBFE6DC5FC9B8BD6B8AA4 /* Pods-Reservation Pro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Reservation Pro/Preview Content\"";
+				DEVELOPMENT_TEAM = 5XC5483PFF;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Reservation Pro/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

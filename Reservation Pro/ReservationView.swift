@@ -26,35 +26,40 @@ struct ReservationView: View {
     }
 
    var body: some View {
-        VStack {
-            TextField("Enter amount of people...", text: $numPeople).keyboardType(.numberPad)
-            DatePicker(selection: $reservationDate, in: ...Date(), displayedComponents: .date) {
-                Text("Select a date")
-            }
+        Form {
+            Section(footer:
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        let reservation = Reservation(rID: self.rID, dateTime: self.getDateString(from: self.reservationDate), numPeople: Int(self.numPeople) ?? 0, location: self.locations[self.selectorIndex], reserverID: self.userDataModel.user?.uID ?? "")
+                        self.userDataModel.handleReservation(reservation)
+                        self.createdReservation = true
+                    }) {
+                        Text(newReservation ? "Create" : "Update")
+                        }.frame(width: 120, height: 40).background(Color.white).cornerRadius(8)
+                    Spacer()
+                }
+            ) {
+                TextField("Enter amount of people...", text: $numPeople).keyboardType(.numberPad)
+                DatePicker(selection: $reservationDate, in: Date()..., displayedComponents: .date) {
+                    Text("Select a date")
+                }
+                DatePicker(selection: $reservationDate, in: Date()..., displayedComponents: .hourAndMinute) {
+                    Text("Select a time")
+                }
 
-            Picker("Numbers", selection: $selectorIndex) {
-                  ForEach(0 ..< locations.count) { index in
-                      Text(self.locations[index]).tag(index)
+                Picker("Numbers", selection: $selectorIndex) {
+                      ForEach(0 ..< locations.count) { index in
+                          Text(self.locations[index]).tag(index)
+                      }
                   }
-              }
-              .pickerStyle(SegmentedPickerStyle())
-            
-            Text("Date is \(reservationDate, formatter: dateFormatter)")
-            Text("Selected Location is: \(locations[selectorIndex])").padding()
-            Text("The amount of people: \(numPeople)")
-            Button(action: {
-                let reservation = Reservation(rID: self.rID, dateTime: self.getDateString(from: self.reservationDate), numPeople: Int(self.numPeople) ?? 0, location: self.locations[self.selectorIndex], reserverID: self.userDataModel.user?.uID ?? "")
-                self.userDataModel.handleReservation(reservation)
-                self.createdReservation = true
-            }) {
-                Text(newReservation ? "Create" : "Update")
+                  .pickerStyle(SegmentedPickerStyle())
             }
-            
         }.alert(isPresented: $createdReservation) {
             Alert(title: Text("Success!"), message: Text("Thanks for making a reservation with us!"), dismissButton: .default(Text("OK"), action: {
                 self.presentationMode.wrappedValue.dismiss()
             }))
-        }
+        }.navigationBarTitle(self.newReservation ? "Create Reservation" : "Update Reservation", displayMode: .inline)
     }
     
     private func getDateString(from date: Date) -> String {
