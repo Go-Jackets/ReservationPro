@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import FirebaseDatabase
+import Firebase
 
 class FirebaseRequest {
     let db = Database.database()
