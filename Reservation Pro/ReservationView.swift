@@ -22,7 +22,7 @@ struct ReservationView: View {
 
    var body: some View {
         VStack {
-            TextField("Enter amount of people...", text: $numPeople)
+            TextField("Enter amount of people...", text: $numPeople).keyboardType(.numberPad)
             DatePicker(selection: $reservationDate, in: ...Date(), displayedComponents: .date) {
                 Text("Select a date")
             }
