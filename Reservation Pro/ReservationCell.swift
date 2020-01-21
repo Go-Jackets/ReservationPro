@@ -12,7 +12,11 @@ struct ReservationCell: View {
     var reservation: Reservation
     var body: some View {
         NavigationLink(destination: ReservationView(reservationDate: dateFor(dateStr: reservation.dateTime), selectorIndex: indexFor(locationStr: reservation.location), numPeople: "\(reservation.numPeople)", rID: reservation.rID)) {
-            Text("Test")
+            VStack {
+                Text("Reservation for \(reservation.numPeople) \(reservation.numPeople == 1 ? "person" : "people")")
+                Text("on \(readableDateString(for: reservation.dateTime))")
+                Text("with a preference for \(reservation.location) seating.")
+            }.multilineTextAlignment(.leading)
         }
     }
     private func dateFor(dateStr: String) -> Date {
@@ -32,6 +36,13 @@ struct ReservationCell: View {
         default:
             return 0
         }
+    }
+    private func readableDateString(for dateStr: String) -> String {
+        let date = dateFor(dateStr: dateStr)
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .medium
+        return formatter.string(from: date)
     }
 }
 
