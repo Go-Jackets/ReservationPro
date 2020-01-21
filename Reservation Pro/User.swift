@@ -10,6 +10,6 @@ import Foundation
  
 struct User {
     var uID: String
-    var reservationIDs: [String]
+    var reservations: [Reservation]
     var name: String
 }
