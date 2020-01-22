@@ -24,4 +24,8 @@ class FirebaseRequest {
         let ref = db.reference(withPath: path)
         ref.setValue(value)
     }
+    func deleteData(path: String) {
+        let ref = db.reference(withPath: path)
+        ref.removeValue()
+    }
 }

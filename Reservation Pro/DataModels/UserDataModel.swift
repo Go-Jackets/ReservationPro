@@ -85,4 +85,12 @@ class UserDataModel: ObservableObject {
             print("There was an issue")
         }
     }
+    
+    func deleteReservation(at offsets: IndexSet) {
+        let reservation = self.user!.reservations.remove(at: offsets.first!)
+        guard let user = user else { return }
+        let req = FirebaseRequest()
+        req.uploadData(path: "/users/\(user.uID)/reservations", value: user.reservations.map { $0.rID })
+        req.deleteData(path: "/reservations/\(reservation.rID)")
+    }
 }

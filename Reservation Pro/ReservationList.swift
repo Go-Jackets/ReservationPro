@@ -17,6 +17,9 @@ struct ReservationList: View {
                 List {
                     ForEach(userDataModel.user!.reservations, id: \.rID) { reservation in
                         ReservationCell(reservation: reservation)
+                    }.onDelete { offset in
+                        print(offset)
+                        self.userDataModel.deleteReservation(at: offset)
                     }
                 }
             } else {
