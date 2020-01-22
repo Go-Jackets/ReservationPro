@@ -10,11 +10,12 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var userDataModel: UserDataModel
+    @Environment(\.colorScheme) var colorSceme
     
     var body: some View {
         NavigationView {
             VStack {
-                GoogleSignInButton(colorScheme: .light) { (uid, name) in
+                GoogleSignInButton(colorScheme: colorSceme) { (uid, name) in
                     self.userDataModel.user = User(uID: uid, reservations: [], name: name)
                     print(uid)
                     self.userDataModel.getUserData {
