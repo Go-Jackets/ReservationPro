@@ -66,6 +66,9 @@ struct ReservationView: View {
                 self.presentationMode.wrappedValue.dismiss()
             }))
         }.navigationBarTitle(self.newReservation ? "Create Reservation" : "Update Reservation", displayMode: .inline)
+        .onTapGesture(count: 2) {
+            UIApplication.shared.endEditing()
+        }
     }
     
     private func getDateString(from date: Date) -> String {
@@ -81,5 +84,19 @@ struct ReservationView: View {
 struct ReservationView_Previews: PreviewProvider {
     static var previews: some View {
         ReservationView(reservationDate: Date(), selectorIndex: 0, numPeople: "1", newReservation: true, rID: "\(UUID())")
+    }
+}
+
+extension UIApplication {
+    var isKeyboardPresented: Bool {
+        if let keyboardWindowClass = NSClassFromString("UIRemoteKeyboardWindow"),
+            self.windows.contains(where: { $0.isKind(of: keyboardWindowClass) }) {
+            return true
+        } else {
+            return false
+        }
+    }
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
