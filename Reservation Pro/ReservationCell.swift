@@ -41,7 +41,7 @@ struct ReservationCell: View {
         let date = dateFor(dateStr: dateStr)
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
-        formatter.timeStyle = .medium
+        formatter.timeStyle = .short
         return formatter.string(from: date)
     }
 }
