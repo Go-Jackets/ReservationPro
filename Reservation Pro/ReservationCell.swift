@@ -16,7 +16,7 @@ struct ReservationCell: View {
                 Text("Reservation for \(reservation.numPeople) \(reservation.numPeople == 1 ? "person" : "people")")
                 Text("on \(readableDateString(for: reservation.dateTime))")
                 Text("with a preference for \(reservation.location) seating.")
-            }.multilineTextAlignment(.leading)
+            }.multilineTextAlignment(.leading).foregroundColor(.black)
         }
     }
     private func dateFor(dateStr: String) -> Date {

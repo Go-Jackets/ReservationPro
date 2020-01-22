@@ -35,12 +35,17 @@ struct ReservationView: View {
                         self.userDataModel.handleReservation(reservation)
                         self.createdReservation = true
                     }) {
-                        Text(newReservation ? "Create" : "Update")
-                        }.frame(width: 120, height: 40).background(Color.white).cornerRadius(8)
+                        Text(newReservation ? "Create" : "Update").accentColor(.black)
+                    }.frame(width: 120, height: 40).background(Color("Orange")).cornerRadius(8)
                     Spacer()
                 }
             ) {
-                TextField("Enter amount of people...", text: $numPeople).keyboardType(.numberPad)
+                HStack {
+                    Text("Number of people:")
+                    TextField("Enter amount of people", text: $numPeople)
+                        .keyboardType(.numberPad)
+                        .multilineTextAlignment(.trailing)
+                }
                 DatePicker(selection: $reservationDate, in: Date()..., displayedComponents: .date) {
                     Text("Select a date")
                 }
@@ -49,11 +54,12 @@ struct ReservationView: View {
                 }
 
                 Picker("Numbers", selection: $selectorIndex) {
-                      ForEach(0 ..< locations.count) { index in
-                          Text(self.locations[index]).tag(index)
-                      }
-                  }
-                  .pickerStyle(SegmentedPickerStyle())
+                    ForEach(0 ..< locations.count) { index in
+                        Text(self.locations[index]).tag(index)
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .foregroundColor(Color("Orange"))
             }
         }.alert(isPresented: $createdReservation) {
             Alert(title: Text("Success!"), message: Text("Thanks for making a reservation with us!"), dismissButton: .default(Text("OK"), action: {

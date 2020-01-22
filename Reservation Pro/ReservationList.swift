@@ -14,12 +14,23 @@ struct ReservationList: View {
     var body: some View {
         Group {
             if userDataModel.user!.reservations.count > 0 {
-                List {
-                    ForEach(userDataModel.user!.reservations, id: \.rID) { reservation in
-                        ReservationCell(reservation: reservation)
-                    }.onDelete { offset in
-                        print(offset)
-                        self.userDataModel.deleteReservation(at: offset)
+                GeometryReader { geometry in
+                    ScrollView {
+                        VStack {
+                            ForEach(self.userDataModel.user!.reservations, id: \.rID) { reservation in
+                                ReservationCell(reservation: reservation)
+                                    .padding()
+                                    .background(Color("Orange"))
+                                    .cornerRadius(5)
+                                    .shadow(radius: 5)
+                                    .padding()
+                                    .fixedSize(horizontal: true, vertical: false)
+                            }.onDelete { offset in
+                                print(offset)
+                                self.userDataModel.deleteReservation(at: offset)
+                            }
+                            Spacer()
+                        }.frame(width: geometry.size.width)
                     }
                 }
             } else {
